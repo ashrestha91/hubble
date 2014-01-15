@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+# gem 'jquery-timepicker-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -22,7 +24,16 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+gem 'link_thumbnailer'
+gem 'slim'
+gem 'simple_form'
+
+gem "twitter-bootstrap-rails"
+gem 'flatstrap-rails'
+# gem 'flatstrap-sass', '~> 2.3.1.0'
+
 group :test, :development do
+  gem 'zeus'
   gem "pry-nav"
   gem "pry-rails"
   gem 'pry'

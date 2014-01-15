@@ -1,0 +1,21 @@
+.well
+  = simple_form_for @event do |f|
+    = f.input :url, label: "Link"
+    = f.input :description, label: "Description"
+    = f.input :date, label: "Date", as: :datepicker
+    = f.input :start_time, label: "Start Time"
+    = f.button :submit
+
+- @events.each do |event, preview|
+    .well
+      = link_to event.url do
+        h4
+          = preview.title
+        p
+        = image_tag preview.images.first.source_url.to_s, class: "img-polaroid"
+      p
+      = event.description
+      p
+      = event.date.strftime "%a, %-b %-d, %Y"
+      p
+      = "Starting at #{event.start_time.strftime "%l:%M%P"}"
