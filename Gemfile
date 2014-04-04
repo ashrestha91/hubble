@@ -33,7 +33,6 @@ gem 'flatstrap-rails'
 # gem 'flatstrap-sass', '~> 2.3.1.0'
 
 group :test, :development do
-  gem 'zeus'
   gem "pry-nav"
   gem "pry-rails"
   gem 'pry'
