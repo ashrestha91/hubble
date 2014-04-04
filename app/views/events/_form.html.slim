@@ -1,6 +1,6 @@
 = simple_form_for event do |f|
   = f.input :url, label: "Link", input_html: { class: "input-xlarge" }
   = f.input :description
-  = f.input :date, as: :datepicker
-  = f.input :start_time, label: "Start Time", input_html: { class: "input-mini" }
+  = f.input :date, as: :html5date
+  = f.input :start_time, as: :html5time
   = f.button :submit
