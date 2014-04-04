@@ -1,10 +1,7 @@
 class EventsController < ApplicationController
   def index
     @event = Event.new
-    @events = Event.all.inject({}) do |acc, event|
-      acc[event] = LinkThumbnailer.generate(event.url)
-      acc
-    end
+    @events = Event.all
   end
 
   def create

@@ -1,14 +1,14 @@
 .well.sidebar-nav
   = render "events/form", event: @event
 
-- @events.each do |event, preview|
+- @events.each do |event|
     .well
       .pull-right.close.active
         = link_to "", event_path(event), confirm: "Are you sure?", method: :delete
       = link_to event.url do
         h4
-          = preview.title
-        = image_tag preview.images.first.source_url, class: "img-polaroid"
+          = event.title
+        = image_tag event.image_url, class: "img-polaroid"
       p
       = event.description
       p
