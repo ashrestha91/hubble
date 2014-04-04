@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @event = Event.new
+    @event = Event.new(default_event)
     @events = Event.all
   end
 
@@ -17,6 +17,13 @@ class EventsController < ApplicationController
   end
 
   private
+
+  def default_event
+    {
+      date: Date.today,
+      start_time: Time.now.midnight
+    }
+  end
 
   def event_params
     params.require(:event).permit(:url, :description, :date, :start_time)
