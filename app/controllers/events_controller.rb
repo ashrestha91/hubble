@@ -5,7 +5,13 @@ class EventsController < ApplicationController
   end
 
   def create
-    Event.create(event_params)
+    @event = Event.new(event_params)
+    binding.pry
+    if @event.save
+      flash[:success] = "Event created!"
+    else
+      flash[:error] = "Error: Could not save Event. Please check your event"
+    end
 
     redirect_to events_path
   end
