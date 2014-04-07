@@ -1,3 +1,10 @@
 .modal-body{
   padding-left: 40px;
 }
+
+.modal {
+  display: none;
+  .in {
+    display: block;
+  }
+}
