@@ -1,12 +1,11 @@
 class EventsController < ApplicationController
   def index
     @event = Event.new(default_event)
-    @events = Event.all
+    @events = Event.chronologically
   end
 
   def create
     @event = Event.new(event_params)
-    binding.pry
     if @event.save
       flash[:success] = "Event created!"
     else

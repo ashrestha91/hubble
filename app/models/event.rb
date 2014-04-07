@@ -2,6 +2,8 @@ class Event < ActiveRecord::Base
   validates_presence_of :date, :start_time, :url
   validates :url, format: { with: /\A(http|https):\/\// }
 
+  scope :chronologically, -> { order(:date, :start_time) }
+
   def image_url
     # TODO: replace this logic when link_thumbnailer is updated to v2.0
     # https://github.com/gottfrois/link_thumbnailer/issues/32
