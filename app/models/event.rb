@@ -15,8 +15,8 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def title
-    preview.title
+  def display_title
+    title || preview.title
   end
 
   private
