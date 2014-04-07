@@ -4,7 +4,15 @@ class Event < ActiveRecord::Base
 
   scope :chronologically, -> { order(:date, :start_time) }
 
-  def image_url
+  def pull_data_from_web!
+    preview = LinkThumbnailer.generate(url)
+    self.image_url = get_image_url(preview)
+    self.title ||= preview.title
+  end
+
+  private
+
+  def get_image_url(preview)
     # TODO: replace this logic when link_thumbnailer is updated to v2.0
     # https://github.com/gottfrois/link_thumbnailer/issues/32
     img = preview.images.first
@@ -13,15 +21,5 @@ class Event < ActiveRecord::Base
     else
       img[:source_url]
     end
-  end
-
-  def display_title
-    title || preview.title
-  end
-
-  private
-
-  def preview
-    @preview ||= LinkThumbnailer.generate(url)
   end
 end

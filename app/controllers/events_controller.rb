@@ -6,6 +6,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.pull_data_from_web!
+
     if @event.save
       flash[:success] = "Event created!"
     else
